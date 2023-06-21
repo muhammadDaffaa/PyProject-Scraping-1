@@ -22,7 +22,7 @@ class QuotesSpider(scrapy.Spider):
         # filename = f"quotes-{page}.html"
         # Path(filename).write_bytes(res.body)
         # self.log(f"Saved file {filename}")
-        for quote in res.css("div.quote"):
+        for quote in res.css("div.players open"):
             yield {
                 "text" : quote.css("span.text::text").get(),
                 "author": quote.css("small.author::text").get(),
